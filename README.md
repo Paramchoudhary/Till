@@ -82,11 +82,13 @@ With a valid Circle Gateway signature the route calls `BatchFacilitatorClient.se
 
 Invoice ids are URL-safe encodings of `{payee, amount, memo, salt}`. `demo` is a special id.
 
-## Live on Arc Testnet
+## Live on Arc Mainnet
 
-Receipts: [`0x905637188A6A9638480D5feF3733881ce1dA055f`](https://testnet.arcscan.app/address/0x905637188A6A9638480D5feF3733881ce1dA055f)
+Receipts: [`0x491d83CcEFa45C2195193934db2CD9e77Ca540f2`](https://arc-scan.org/address/0x491d83CcEFa45C2195193934db2CD9e77Ca540f2)
 
-Mainnet needs a few cents of USDC for gas on `0x054b1d7859CFFb53284a1461Dde9179Df7CF182f`, then `scripts/deploy.sh arc`. See [docs/ADDRESSES.md](docs/ADDRESSES.md).
+Deploy tx: [`0x8430d4d4aecc0f0d2431b12c7f922c6694c86949de8a15dfc2bd32b92fb89b91`](https://arc-scan.org/tx/0x8430d4d4aecc0f0d2431b12c7f922c6694c86949de8a15dfc2bd32b92fb89b91)
+
+Testnet Receipts remains at [`0x905637188A6A9638480D5feF3733881ce1dA055f`](https://testnet.arcscan.app/address/0x905637188A6A9638480D5feF3733881ce1dA055f). See [docs/ADDRESSES.md](docs/ADDRESSES.md).
 
 ## DoraHacks
 

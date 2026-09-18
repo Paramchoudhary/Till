@@ -23,11 +23,9 @@ Crypto / Web3
 
 Do **not** use the onArc launchpad repo.
 
-Till is the folder `till/` on disk and is not on GitHub yet. Create a **new public repo** that contains only Till, then paste that URL, for example:
-
-`https://github.com/Paramchoudhary/till-arc`
-
-If you want this created and pushed for you, say so.
+```
+https://github.com/Paramchoudhary/Till
+```
 
 ## Project website
 
@@ -57,6 +55,42 @@ Till is an HTTP 402 checkout for invoices. A human or an agent pays USDC; Circle
 
 ---
 
-## Honest constraint
+## Submission tab (Arc Microgrants)
 
-The live site is on **Arc Testnet** today. DoraHacks rejects testnet-only builds. Mainnet deploy needs ~0.02 USDC for gas on `0x054b1d7859CFFb53284a1461Dde9179Df7CF182f`, then `scripts/deploy.sh arc`.
+**Live deployment on Arc mainnet**
+
+```
+https://till-arc.vercel.app/i/demo
+```
+
+**Arc mainnet contract or tx**
+
+```
+https://arc-scan.org/address/0x491d83CcEFa45C2195193934db2CD9e77Ca540f2
+```
+
+or the deploy tx:
+
+```
+0x8430d4d4aecc0f0d2431b12c7f922c6694c86949de8a15dfc2bd32b92fb89b91
+```
+
+**Public repo**
+
+```
+https://github.com/Paramchoudhary/Till
+```
+
+**In two sentences, what does your project do?**
+
+```
+Till is an HTTP 402 checkout for USDC invoices: a human or an agent pays the same bill with no API key. Circle’s x402 facilitator settles on Arc, then an immutable receipt is written on-chain.
+```
+
+**What does it use Arc for?**
+
+```
+Arc is the settlement and receipt layer. Gas is USDC so a $0.05 invoice costs $0.05, finality is sub-second, and Circle’s Gateway x402 facilitator is native on eip155:5042. Receipts.sol is immutable: pay() for wallets, record() after an agent settle, no withdraw.
+```
+
+**Have you received a Circle or Arc grant, bounty, or prize for this project?** No.
