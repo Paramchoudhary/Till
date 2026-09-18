@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0c0d0b;
+  --surface: #141511;
+  --surface-2: #1b1c17;
+  --border: #2a2c24;
+  --foreground: #f3f0e6;
+  --muted: #9a9688;
+  --dim: #6e6b60;
+  --accent: #c8f542;
+  --accent-fg: #12140c;
+  --paper: #efe7d3;
+  --paper-ink: #1a1812;
+  --good: #86efac;
+  --warn: #f0c36a;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-dim: var(--dim);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-paper: var(--paper);
+  --color-paper-ink: var(--paper-ink);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+.paper {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent 28%),
+    var(--paper);
+  color: var(--paper-ink);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* A torn-off till roll. The dots are punched out of the sheet with the page colour, so the paper
+   reads as physical without needing an image. */
+.perf-top,
+.perf-bottom {
+  position: relative;
+}
+.perf-top::before,
+.perf-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image: radial-gradient(circle at 5px 5px, var(--background) 4.5px, transparent 5px);
+  background-size: 14px 10px;
+  background-repeat: repeat-x;
+}
+.perf-top::before {
+  top: -1px;
+}
+.perf-bottom::after {
+  bottom: -1px;
+}
+
+/* Faint engineering grid behind the hero, so the empty space reads as a surface rather than a void. */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(200, 245, 66, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 245, 66, 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, black 20%, transparent 75%);
+}
+
+/* The PAID stamp: rolled on at an angle, overshooting once like a real hand stamp. */
+@keyframes stamp-in {
+  0% {
+    opacity: 0;
+    transform: rotate(-14deg) scale(1.9);
+  }
+  55% {
+    opacity: 1;
+    transform: rotate(-14deg) scale(0.94);
+  }
+  75% {
+    transform: rotate(-14deg) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-14deg) scale(1);
+  }
+}
+.stamp {
+  animation: stamp-in 620ms cubic-bezier(0.2, 1.4, 0.4, 1) 900ms both;
+}
+
+/* Wire-log lines arriving. */
+@keyframes line-in {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.line-in {
+  animation: line-in 220ms ease-out both;
+}
+
+@keyframes caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+.caret {
+  animation: caret 1s steps(2, end) infinite;
+}
+
+/* A slow sweep across the live panel, so it reads as instrumentation rather than a screenshot. */
+@keyframes sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(300%);
+  }
+}
+.sweep {
+  animation: sweep 3.2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(200, 245, 66, 0.55);
+  }
+  70% {
+    opacity: 0.75;
+    box-shadow: 0 0 0 7px rgba(200, 245, 66, 0);
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 1.9s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp,
+  .line-in,
+  .caret,
+  .sweep,
+  .pulse-dot {
+    animation: none;
+  }
+}

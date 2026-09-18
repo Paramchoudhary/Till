@@ -1,0 +1,14 @@
+{
+  "name": "pay_invoice",
+  "description": "Pay a Till invoice in USDC on Arc via HTTP 402. No API key. The 402 challenge is the auth. url is the /api/i/{id} endpoint.",
+  "inputSchema": {
+    "type": "object",
+    "required": ["url"],
+    "properties": {
+      "url": {
+        "type": "string",
+        "description": "Fully qualified Till invoice API URL, for example https://example.com/api/i/demo"
+      }
+    }
+  }
+}
